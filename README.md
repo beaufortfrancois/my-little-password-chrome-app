@@ -1,10 +1,10 @@
 WIP
 
-## Building
+## Instructions
 
-### Requirements:
-- Install [NaCl SDK](https://developer.chrome.com/native-client/sdk/download)
-- Install [NaCl ports](https://code.google.com/p/naclports)
+### Requirements
+- [NaCl SDK](https://developer.chrome.com/native-client/sdk/download)
+- [NaCl ports](https://code.google.com/p/naclports)
 
 ```bash
 # Download the pepper_42 bundle
@@ -19,11 +19,9 @@ git checkout -b pepper_42 origin/pepper_42
 /path/to/naclports/src/bin/naclports --toolchain=pnacl install libarchive
 ```
 
-### Get the code:
+### Build
 ```bash
 git clone git@github.com:beaufortfrancois/my-little-password.git
 cd my-little-password/src
 make
 ```
-
-
