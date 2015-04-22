@@ -1,7 +1,5 @@
 WIP
 
-## Instructions
-
 ### Requirements
 - [NaCl SDK](https://developer.chrome.com/native-client/sdk/download)
 - [NaCl ports](https://code.google.com/p/naclports)
