@@ -4,11 +4,11 @@ WIP
 
 ### Requirements:
 - NaCl SDK https://developer.chrome.com/native-client/sdk/download
-- naclports https://code.google.com/p/naclports/
+- naclports https://code.google.com/p/naclports
 
 ```bash
-export NACL_SDK_ROOT=/path/to/nacl_sdk/pepper_XX
-/path/to/naclports/src/bin/naclports  --toolchain=pnacl install libarchive
+export NACL_SDK_ROOT=/path/to/nacl_sdk/pepper_42
+/path/to/naclports/src/bin/naclports --toolchain=pnacl install libarchive
 ```
 
 ### Get the code:
@@ -17,4 +17,5 @@ git clone git@github.com:beaufortfrancois/my-little-password.git
 cd my-little-password/src
 make
 ```
+
 

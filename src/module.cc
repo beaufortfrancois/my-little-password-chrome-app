@@ -28,10 +28,9 @@ class Instance : public pp::Instance {
     struct archive_entry *entry;
 
     a = archive_write_new();
-    archive_write_add_filter_gzip(a);
-    archive_write_set_format_pax_restricted(a);
-    archive_write_set_passphrase(a, password);
-    archive_write_open_memory(struct archive *a, void *buff, size_t buffSize, size_t *used)
+    //archive_write_add_filter_gzip(a);
+    //archive_write_set_format_pax_restricted(a);
+    //archive_write_set_passphrase(a, password);
 
     //archive_write_open_filename(a, filename, 10240);
 
