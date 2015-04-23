@@ -14,7 +14,8 @@ include $(NACL_SDK_ROOT)/tools/common.mk
 
 
 LIBS = ppapi_cpp ppapi \
-       archive z
+       archive z \
+       iconv crypto
 
 
 CFLAGS = -Wall

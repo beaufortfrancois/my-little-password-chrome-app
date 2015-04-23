@@ -1,5 +1,6 @@
 function onModuleLoad() {
   var module = document.getElementById('module');
+  document.getElementById('button').disabled = false;
   document.getElementById('button').addEventListener('click', onButtonClick);
 }
 
@@ -11,7 +12,7 @@ function onButtonClick() {
         module.postMessage({
           'filename': entry.name,
           'password': document.getElementById('password').value.trim(),
-          'buffer': event.target.result,
+          'data': event.target.result,
         });
       }
       reader.readAsArrayBuffer(file);
@@ -20,12 +21,15 @@ function onButtonClick() {
 }
 
 function onModuleMessage(event) {
-  console.log(event.data);
-  var filename = event.data.filename; // + '.zip';
+  document.getElementById('log').textContent = JSON.stringify(event.data, null, 2);
+  var filename = event.data.filename + '.zip';
   chrome.fileSystem.chooseEntry({type: 'saveFile', suggestedName: filename},
       function(writableEntry) {
+    if (!writableEntry) {
+      return;
+    }
     writableEntry.createWriter(function(writer) {
-      var blob = new Blob([event.data.buffer]);
+      var blob = new Blob([event.data.encryptedData], {type : 'application/zip'});
       writer.seek(0);
       writer.write(blob);
       writer.onwriteend = function() {
