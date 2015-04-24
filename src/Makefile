@@ -13,9 +13,7 @@ TARGET = module
 include $(NACL_SDK_ROOT)/tools/common.mk
 
 
-LIBS = ppapi_cpp ppapi \
-       archive z \
-       iconv crypto
+LIBS = ppapi_cpp ppapi pthread archive z iconv crypto
 
 
 CFLAGS = -Wall
