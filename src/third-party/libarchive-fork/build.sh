@@ -14,8 +14,6 @@ ConfigureStep() {
   AutogenStep
 
   EXTRA_CONFIGURE_ARGS="--disable-bsdtar --disable-bsdcpio --without-nettle"
-  EXTRA_CONFIGURE_ARGS+=" --with-zlib"
-  EXTRA_CONFIGURE_ARGS+=" --with-lzma"
 
   # Temporary xml2 support cannot be added because the patch used in
   # ports/libarchve doesn't apply correctly here due. The reason is that
