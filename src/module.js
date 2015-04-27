@@ -21,7 +21,7 @@ function onButtonClick() {
         module.postMessage({
           'filename': entry.name,
           'password': password,
-          'data': event.target.result,
+          'binaryData': event.target.result,
         });
       }
       reader.readAsArrayBuffer(file);
@@ -39,7 +39,7 @@ function onModuleMessage(event) {
 
     writableEntry.createWriter(function(writer) {
       // Write encrypted data on disk.
-      var blob = new Blob([data.encryptedData]);
+      var blob = new Blob([data.binaryData]);
       writer.seek(0);
       writer.write(blob);
       writer.onwriteend = function() {

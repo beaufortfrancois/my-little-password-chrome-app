@@ -1,11 +1,10 @@
+#include <ppapi/cpp/instance.h>
+#include <ppapi/cpp/module.h>
+#include <ppapi/cpp/var_array_buffer.h>
+#include <ppapi/cpp/var_dictionary.h>
+
 #include "archive.h"
 #include "archive_entry.h"
-#include "ppapi/cpp/instance.h"
-#include "ppapi/cpp/module.h"
-#include "ppapi/cpp/var.h"
-#include "ppapi/cpp/var_array.h"
-#include "ppapi/cpp/var_array_buffer.h"
-#include "ppapi/cpp/var_dictionary.h"
 
 namespace {
   const int kMaxBufferSize = 512 * 1024 * 1024; // 512MB
@@ -22,10 +21,9 @@ class Instance : public pp::Instance {
       return;
 
     pp::VarDictionary dict(var_message);
-
     std::string filename = dict.Get("filename").AsString();
     std::string password = dict.Get("password").AsString();
-    pp::VarArrayBuffer data(dict.Get("data"));
+    pp::VarArrayBuffer data(dict.Get("binaryData"));
 
     void *buffer = malloc(kMaxBufferSize);
     size_t used = 0;
@@ -50,8 +48,10 @@ class Instance : public pp::Instance {
 
     pp::VarArrayBuffer encryptedData(used);
     memcpy(encryptedData.Map(), buffer, used);
+    free(buffer);
 
-    dict.Set("encryptedData", encryptedData);
+    // Replace original data with encrypted data.
+    dict.Set("binaryData", encryptedData);
     PostMessage(dict);
   }
 };

@@ -26,10 +26,10 @@ pnacl/Release/module.o: module.cc \
   /home/fr/nacl_sdk/pepper_42/include/ppapi/c/pp_completion_callback.h \
   /home/fr/nacl_sdk/pepper_42/include/ppapi/c/pp_time.h \
   /home/fr/nacl_sdk/pepper_42/include/ppapi/cpp/core.h \
-  /home/fr/nacl_sdk/pepper_42/include/ppapi/cpp/var.h \
-  /home/fr/nacl_sdk/pepper_42/include/ppapi/cpp/var_array.h \
   /home/fr/nacl_sdk/pepper_42/include/ppapi/cpp/var_array_buffer.h \
-  /home/fr/nacl_sdk/pepper_42/include/ppapi/cpp/var_dictionary.h
+  /home/fr/nacl_sdk/pepper_42/include/ppapi/cpp/var.h \
+  /home/fr/nacl_sdk/pepper_42/include/ppapi/cpp/var_dictionary.h \
+  /home/fr/nacl_sdk/pepper_42/include/ppapi/cpp/var_array.h
 module.cc:
 /home/fr/nacl_sdk/pepper_42/include/ppapi/cpp/instance.h:
 /home/fr/nacl_sdk/pepper_42/include/ppapi/c/pp_instance.h:
@@ -57,7 +57,7 @@ module.cc:
 /home/fr/nacl_sdk/pepper_42/include/ppapi/c/pp_completion_callback.h:
 /home/fr/nacl_sdk/pepper_42/include/ppapi/c/pp_time.h:
 /home/fr/nacl_sdk/pepper_42/include/ppapi/cpp/core.h:
-/home/fr/nacl_sdk/pepper_42/include/ppapi/cpp/var.h:
-/home/fr/nacl_sdk/pepper_42/include/ppapi/cpp/var_array.h:
 /home/fr/nacl_sdk/pepper_42/include/ppapi/cpp/var_array_buffer.h:
+/home/fr/nacl_sdk/pepper_42/include/ppapi/cpp/var.h:
 /home/fr/nacl_sdk/pepper_42/include/ppapi/cpp/var_dictionary.h:
+/home/fr/nacl_sdk/pepper_42/include/ppapi/cpp/var_array.h:
