@@ -1,8 +1,7 @@
 # My Little Password Chrome App
 
 This Chrome App lets you create password protected zip files thanks to [Portable Native
-Client](http://gonacl.com) and more specifically
-[libarchive](https://github.com/libarchive/libarchive) NaCl port.
+Client](http://gonacl.com) and more specifically multi-format archive and compression library [libarchive](https://github.com/libarchive/libarchive) NaCl port.
 
 Get it on the Chrome Web Store at https://chrome.google.com/webstore/detail/TODO
 
@@ -10,7 +9,7 @@ Get it on the Chrome Web Store at https://chrome.google.com/webstore/detail/TODO
 
 ## Image Credits
 
-[Water Reservoir](http://www.deviantart.com/art/Group-Background-5-Water-Reservoir-306196848) background image has been created by [MLP-Vector-Collabs](http://mlp-vector-collabs.deviantart.com/)
+[Water Reservoir](http://www.deviantart.com/art/Group-Background-5-Water-Reservoir-306196848) background image was created by [MLP-Vector-Collabs](http://mlp-vector-collabs.deviantart.com/)
 
 ## Development Instructions
 
@@ -22,8 +21,8 @@ Get it on the Chrome Web Store at https://chrome.google.com/webstore/detail/TODO
 ### Setup
 
 ```bash
-# Download pepper_42 bundle.
-/path/to/nacl_sdk/naclsdk update pepper_42
+# Install pepper_42 bundle in Native Client SDK.
+/path/to/nacl_sdk/naclsdk install --force pepper_42
 
 # Set NACL_SDK_ROOT environment variable to the pepper_42 bundle directory.
 export NACL_SDK_ROOT=/path/to/nacl_sdk/pepper_42
