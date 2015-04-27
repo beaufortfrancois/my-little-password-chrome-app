@@ -27,3 +27,6 @@ cd my-little-password/src/third-party
 cd my-little-password/src
 make
 ```
+
+### Credits
+http://www.deviantart.com/art/Group-Background-5-Water-Reservoir-306196848

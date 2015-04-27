@@ -1,0 +1,29 @@
+body {
+  background-image: -webkit-image-set(url(images/background.png) 1x,
+                 url(images/background_2x.png) 2x);
+  margin-top: 24px;
+  text-align: center;
+  font-size: 0;
+}
+
+input {
+  border-radius: 2px 0 0 2px;
+  border: 2px solid #333D36;
+  outline: none;
+  padding: 6px 8px;
+  width: 200px;
+}
+
+button {
+  background-color: #333D36;
+  border-radius: 0 2px 2px 0;
+  border: 2px solid #333D36;
+  color: white;
+  font-weight: bold;
+  padding: 6px 8px;
+  outline: none;
+}
+
+button:focus {
+  border-bottom: 2px solid #5C6768;
+}
