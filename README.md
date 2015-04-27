@@ -17,27 +17,27 @@ http://www.deviantart.com/art/Group-Background-5-Water-Reservoir-306196848
 ### Requirements
 
 - [Download the Native Client SDK](https://developer.chrome.com/native-client/sdk/download)
-- [Check out naclports source](https://code.google.com/p/naclports)
+- [Check out NaCl Ports](https://code.google.com/p/naclports/wiki/HowTo_Checkout)
 
 ### Setup
 
 ```bash
 # Download pepper_42 bundle.
-/path/to/nacl_sdk update pepper_42
+/path/to/nacl_sdk/naclsdk update pepper_42
 
 # Set NACL_SDK_ROOT environment variable to the pepper_42 bundle directory.
 export NACL_SDK_ROOT=/path/to/nacl_sdk/pepper_42
 
-# Check out NaCl ports pepper_42 branch.
+# Check out NaCl Ports pepper_42 branch.
 cd /path/to/naclports/src
 git checkout -b pepper_42 origin/pepper_42
 
-# Clone My Little Password Git repository
+# Clone "My Little Password" Git repository
 cd /path/to/workspace/
 git clone git@github.com:beaufortfrancois/my-little-password-chrome-app.git
-cd my-little-password
+cd my-little-password-chrome-app
 
-# Install libarchive NaCl port.
+# Install libarchive-fork custom NaCl Port.
 /path/to/naclports/src/bin/naclports --toolchain=pnacl \
 install src/third-party/libarchive-fork
 ```
