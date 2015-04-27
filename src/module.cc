@@ -70,4 +70,4 @@ namespace pp {
 Module* CreateModule() {
   return new NaclArchiveModule();
 }
-}  // namespace pp
+}
