@@ -37,7 +37,7 @@ git clone git@github.com:beaufortfrancois/my-little-password-chrome-app.git
 cd my-little-password-chrome-app
 
 # Install libarchive-fork custom NaCl Port.
-/path/to/naclports/src/bin/naclports --toolchain=pnacl \
+/path/to/naclports/src/bin/naclports --toolchain=pnacl -f \
 install src/third-party/libarchive-fork
 ```
 

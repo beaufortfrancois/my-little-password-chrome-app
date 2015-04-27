@@ -1,1 +1,1 @@
-libarchive-fork actually comes from https://chromium.googlesource.com/apps/unpacker/+/master/third-party/libarchive-fork
+For info, the libarchive-fork NaCl Port in this repository is an exact copy of [libarchive-fork](https://chromium.googlesource.com/apps/unpacker/+/master/third-party/libarchive-fork) embed in the [Chrome OS ZIP unpacker](https://chromium.googlesource.com/apps/unpacker/+/master/unpacker) component extension.
