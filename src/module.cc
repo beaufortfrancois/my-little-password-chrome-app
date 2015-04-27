@@ -8,7 +8,7 @@
 #include "ppapi/cpp/var_dictionary.h"
 
 namespace {
-  const int kMaxBufferSize = 50 * 1024 * 1024; // 50MB
+  const int kMaxBufferSize = 512 * 1024 * 1024; // 512MB
 }
 
 class Instance : public pp::Instance {
@@ -27,11 +27,10 @@ class Instance : public pp::Instance {
     std::string password = dict.Get("password").AsString();
     pp::VarArrayBuffer data(dict.Get("data"));
 
-    archive* a = archive_write_new();
-    pp::VarArrayBuffer archive_buffer(kMaxBufferSize);
-    void *buffer = archive_buffer.Map();
+    void *buffer = malloc(kMaxBufferSize);
     size_t used = 0;
 
+    archive* a = archive_write_new();
     archive_write_set_format_zip(a);
     archive_write_add_filter_none(a);
     archive_write_set_options(a, "zip:encryption=traditional");
@@ -50,7 +49,7 @@ class Instance : public pp::Instance {
     archive_write_free(a);
 
     pp::VarArrayBuffer encryptedData(used);
-    memcpy(encryptedData.Map(), archive_buffer.Map(), used);
+    memcpy(encryptedData.Map(), buffer, used);
 
     dict.Set("encryptedData", encryptedData);
     PostMessage(dict);
