@@ -1,42 +1,57 @@
 # My Little Password Chrome App
 
-This Chrome App lets you create password protected zip files from any file
-thanks to [Native Client](http://gonacl.com) and more spefically
+This Chrome App lets you create password protected zip files thanks to [Portable Native
+Client](http://gonacl.com) and more specifically
 [libarchive](https://github.com/libarchive/libarchive) NaCl port.
 
 Get it on the Chrome Web Store at https://chrome.google.com/webstore/detail/TODO
 
 <img src="https://raw.githubusercontent.com/beaufortfrancois/my-little-password-chrome-app/master/screenshot.png">
 
-## How to build
+## Image Credits
+
+http://www.deviantart.com/art/Group-Background-5-Water-Reservoir-306196848
+
+## Development Instructions
 
 ### Requirements
-- [NaCl SDK](https://developer.chrome.com/native-client/sdk/download)
-- [NaCl ports](https://code.google.com/p/naclports)
 
-### Build
+- [Download the Native Client SDK](https://developer.chrome.com/native-client/sdk/download)
+- [Check out naclports source](https://code.google.com/p/naclports)
+
+### Setup
+
 ```bash
-# Download the pepper_42 bundle
+# Download pepper_42 bundle.
 /path/to/nacl_sdk update pepper_42
-# Set the NACL_SDK_ROOT environment variable to the pepper_42 bundle directory.
+
+# Set NACL_SDK_ROOT environment variable to the pepper_42 bundle directory.
 export NACL_SDK_ROOT=/path/to/nacl_sdk/pepper_42
 
-# Check out pepper_42 branch for NaCl ports.
+# Check out NaCl ports pepper_42 branch.
 cd /path/to/naclports/src
 git checkout -b pepper_42 origin/pepper_42
 
-# Clone Git Repo
+# Clone My Little Password Git repository
 cd /path/to/workspace/
-git clone git@github.com:beaufortfrancois/my-little-password.git
+git clone git@github.com:beaufortfrancois/my-little-password-chrome-app.git
+cd my-little-password
 
 # Install libarchive NaCl port.
-cd my-little-password/src/third-party
-/path/to/naclports/src/bin/naclports --toolchain=pnacl install libarchive-fork
-
-# Build NaCl module
-cd my-little-password/src
-make
+/path/to/naclports/src/bin/naclports --toolchain=pnacl \
+install src/third-party/libarchive-fork
 ```
 
-### Credits
-http://www.deviantart.com/art/Group-Background-5-Water-Reservoir-306196848
+### Build
+
+```bash
+# Build Release NaCl module
+cd /path/to/my-little-password/src
+make
+```
+OR
+```bash
+# Build Debug NaCl module
+cd /path/to/my-little-password/src
+CONFIG=Debug make
+```
