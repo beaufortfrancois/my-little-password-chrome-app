@@ -27,3 +27,17 @@ button {
 button:focus {
   border-bottom: 2px solid #5C6768;
 }
+
+button[disabled] {
+  color: #43584A;
+}
+
+#poney {
+  background-image: -webkit-image-set(url(images/poney.png) 1x,
+                 url(images/poney_2x.png) 2x);
+  width: 225px;
+  height: 132px;
+  bottom: 0;
+  right: 5%;
+  position: fixed;
+}

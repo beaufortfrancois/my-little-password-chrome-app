@@ -5,13 +5,22 @@ function onModuleLoad() {
 }
 
 function onButtonClick() {
+  document.getElementById('poney').hidden = true;
+  var password = document.getElementById('password').value;
+  if (!password.trim())
+    return;
+
   chrome.fileSystem.chooseEntry({type: 'openFile'}, function(entry) {
+    if (chrome.runtime.lastError || !entry)
+      return;
+
     entry.file(function(file) {
       var reader = new FileReader();
       reader.onload = function(event) {
+        // Send message to NaCl module when file has been successfully read.
         module.postMessage({
           'filename': entry.name,
-          'password': document.getElementById('password').value.trim(),
+          'password': password,
           'data': event.target.result,
         });
       }
@@ -21,21 +30,23 @@ function onButtonClick() {
 }
 
 function onModuleMessage(event) {
-  document.getElementById('log').textContent = JSON.stringify(event.data, null, 2);
-  var filename = event.data.filename + '.zip';
+  var data = event.data;
+  var filename = data.filename + '.zip';
   chrome.fileSystem.chooseEntry({type: 'saveFile', suggestedName: filename},
       function(writableEntry) {
-    if (!writableEntry) {
+    if (chrome.runtime.lastError || !writableEntry)
       return;
-    }
+
     writableEntry.createWriter(function(writer) {
-      var blob = new Blob([event.data.encryptedData], {type : 'application/zip'});
+      // Write encrypted data on disk.
+      var blob = new Blob([data.encryptedData]);
       writer.seek(0);
       writer.write(blob);
       writer.onwriteend = function() {
         writer.onwriteend = null;
         writer.truncate(blob.size);
-        console.log('Written on', writableEntry.name);
+        // Reveal poney on write.
+        document.getElementById('poney').hidden = false;
       }
     });
   });
@@ -46,8 +57,8 @@ window.addEventListener('DOMContentLoaded', function() {
   embed.setAttribute('id', 'module');
   embed.setAttribute('width', 0);
   embed.setAttribute('height', 0);
-  embed.setAttribute('src', 'pnacl/Release/module.nmf');
   embed.setAttribute('type', 'application/x-pnacl');
+  embed.setAttribute('src', 'pnacl/Release/module.nmf');
 
   var listenerDiv = document.getElementById('listener');
   listenerDiv.addEventListener('load', onModuleLoad, true);
