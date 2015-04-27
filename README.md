@@ -10,7 +10,7 @@ Get it on the Chrome Web Store at https://chrome.google.com/webstore/detail/TODO
 
 ## Image Credits
 
-http://www.deviantart.com/art/Group-Background-5-Water-Reservoir-306196848
+[Water Reservoir](http://www.deviantart.com/art/Group-Background-5-Water-Reservoir-306196848) background image has been created by [MLP-Vector-Collabs](http://mlp-vector-collabs.deviantart.com/)
 
 ## Development Instructions
 
@@ -32,7 +32,7 @@ export NACL_SDK_ROOT=/path/to/nacl_sdk/pepper_42
 cd /path/to/naclports/src
 git checkout -b pepper_42 origin/pepper_42
 
-# Clone "My Little Password" Git repository
+# Clone "My Little Password" Git repository.
 cd /path/to/workspace/
 git clone git@github.com:beaufortfrancois/my-little-password-chrome-app.git
 cd my-little-password-chrome-app
