@@ -12,8 +12,7 @@ namespace {
 
 class Instance : public pp::Instance {
  public:
-  explicit Instance(PP_Instance instance) : pp::Instance(instance)
-  {}
+  explicit Instance(PP_Instance instance) : pp::Instance(instance) {}
   virtual ~Instance() {}
 
   virtual void HandleMessage(const pp::Var& var_message) {
