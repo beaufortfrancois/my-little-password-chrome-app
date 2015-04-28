@@ -20,6 +20,7 @@ function onButtonClick() {
         // Send message to NaCl module when file has been successfully read.
         module.postMessage({
           'filename': entry.name,
+          'lastModified': file.lastModified,
           'password': password,
           'binaryData': event.target.result,
         });
@@ -30,6 +31,8 @@ function onButtonClick() {
 }
 
 function onModuleMessage(event) {
+  console.debug('onModuleMessage', event);
+
   var data = event.data;
   var filename = data.filename + '.zip';
   chrome.fileSystem.chooseEntry({type: 'saveFile', suggestedName: filename},

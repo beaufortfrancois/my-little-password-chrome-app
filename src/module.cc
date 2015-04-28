@@ -2,6 +2,7 @@
 #include <ppapi/cpp/module.h>
 #include <ppapi/cpp/var_array_buffer.h>
 #include <ppapi/cpp/var_dictionary.h>
+#include <time.h>
 
 #include "archive.h"
 #include "archive_entry.h"
@@ -22,6 +23,7 @@ class Instance : public pp::Instance {
     pp::VarDictionary dict(var_message);
     std::string filename = dict.Get("filename").AsString();
     std::string password = dict.Get("password").AsString();
+    time_t lastModified = dict.Get("lastModified").AsDouble() / 1000;
     pp::VarArrayBuffer data(dict.Get("binaryData"));
 
     void *buffer = malloc(kMaxBufferSize);
@@ -37,6 +39,7 @@ class Instance : public pp::Instance {
     archive_entry *entry = archive_entry_new();
     archive_entry_copy_pathname(entry, filename.c_str());
     archive_entry_set_mode(entry, AE_IFREG | 0755);
+    archive_entry_set_mtime(entry, lastModified, 0);
     archive_entry_set_size(entry, data.ByteLength());
     archive_write_header(a, entry);
     archive_entry_free(entry);
