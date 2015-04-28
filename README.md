@@ -45,12 +45,12 @@ install src/third-party/libarchive-fork
 
 ```bash
 # Build Release NaCl module
-cd /path/to/my-little-password/src
+cd /path/to/my-little-password-chrome-app/src
 make
 ```
 OR
 ```bash
 # Build Debug NaCl module
-cd /path/to/my-little-password/src
+cd /path/to/my-little-password-chrome-app/src
 CONFIG=Debug make
 ```
