@@ -1,5 +1,6 @@
 {
   "name": "My Little Password",
+  "description": "Create password protected ZIP files",
   "version": "0.1",
   "manifest_version": 2,
   "minimum_chrome_version": "42.0.2283.0",
