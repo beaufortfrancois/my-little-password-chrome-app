@@ -32,7 +32,7 @@ class Instance : public pp::Instance {
     archive* a = archive_write_new();
     archive_write_set_format_zip(a);
     archive_write_add_filter_none(a);
-    archive_write_set_options(a, "zip:encryption=traditional");
+    archive_write_set_options(a, "zip:encryption=aes256");
     archive_write_set_passphrase(a, password.c_str());
     archive_write_open_memory(a, buffer, kMaxBufferSize, &used);
 
